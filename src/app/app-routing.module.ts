@@ -8,8 +8,16 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 
 const routes: Routes = [
   {
+    path:"**",
+    component:PageHomeComponent
+  },
+  {
+    path:"login",
+    component:PageLoginComponent
+  },
+  {
     path: '',
-    children: []
+    component:PageHomeComponent
   }
 ];
 
