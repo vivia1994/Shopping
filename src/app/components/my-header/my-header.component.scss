@@ -1,0 +1,23 @@
+.login{
+    display: flex;
+    justify-content: space-between;
+}
+.btn-primary{
+    background-color:transparent;
+    border-color:transparent;
+}
+.login-block{
+    display: flex;
+    justify-content: center;
+    flex-basis: 33.33%;
+    align-content: center;
+    align-items: center;
+}
+.login-name{
+    text-decoration: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 35px;
+}

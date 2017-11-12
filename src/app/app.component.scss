@@ -1,0 +1,22 @@
+.box-main {
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+    .box-body {
+      // margin: auto;
+      .box-left-nav {
+        flex-basis: 20%;
+  // background-color: ;
+  border-right-style:solid;
+  border-right-color: #F12330;
+        ul {
+            margin: auto 0;
+        }
+      }
+    }
+  }
+  
+  .container {
+    display: flex;
+  }
+  

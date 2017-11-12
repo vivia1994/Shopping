@@ -1,0 +1,38 @@
+.login{
+    display: flex;
+    justify-content:center;
+    align-content: center;
+    flex-shrink:1;
+    flex-wrap:wrap;
+}
+.img-responsive{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.img-thumbnail{
+    display: flex;
+    flex-basis: 100%;
+    padding: 4px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    display: inline-block;
+    height: auto;
+}
+.cool-block-bor {
+    margin: 3px;
+    border: 1px dashed #aaa;
+    box-shadow: 0px 0px 1px #999;
+    border-radius: 3px;
+    padding: 15px;
+}
+.login-block{
+    display: flex;
+    flex-basis: 50%;
+    justify-content: center;
+}
