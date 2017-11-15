@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserInfo } from '../../app.component';
 
 @Component({
   selector: 'app-page-home',
@@ -11,5 +12,7 @@ export class PageHomeComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  AlertToken() {
+    alert(UserInfo.token);
+  }
 }

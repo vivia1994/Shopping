@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 import { Http, Response, URLSearchParams, Headers, RequestOptions } from '@angular/http';
-import { UserInfo } from '../../app.component';
+import { Route, Router, ActivatedRoute, Params } from '@angular/router';
+import { UserInfo,ButtonState} from '../../app.component';
+
 
 @Component({
   selector: 'app-page-login',
@@ -14,7 +16,7 @@ import { UserInfo } from '../../app.component';
 export class PageLoginComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private route: ActivatedRoute, private router: Router) {
     this.form = new FormGroup({
       num: new FormControl('', CustomValidators.num),
       username: new FormControl('', CustomValidators.range([5, 9])),
@@ -24,26 +26,30 @@ export class PageLoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  onClick(username, password) {
-    //alert(username+password);
-    //be lazy
-    alert(username+"  "+password);      
-    
+  onClick_Signin(username, password) {
     let body = JSON.stringify({
       username: username,
       psd: password
     });
+    alert(username);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     this.http.post("https://pwcfrontendtest.azurewebsites.net/login", body, options).toPromise().then((response) => {
-      alert("aaa");  
-    if(response.json().status=="success") {
-      UserInfo.token = response.json().token;  
-      alert(UserInfo.token);      
-    } 
-    else{
-      alert("Invalid user or wrong password!")
-    }
+      if (response.json().status == "success") {
+        UserInfo.token = response.json().token;
+        this.router.navigate(['../home'], { relativeTo: this.route });
+        console.log("onClick_Signin");
+        // ButtonState.isShowSignin = ! ButtonState.isShowSignin;
+        // ButtonState.isShowSignout = ! ButtonState.isShowSignout;
+        // alert(UserInfo.token);
+      }
+      else {
+        alert("Invalid user or wrong password!");        
+        this.router.navigate(['../login'], { relativeTo: this.route });
+      }
     });
+  }
+  AlertToken() {
+    alert(UserInfo.token);
   }
 }

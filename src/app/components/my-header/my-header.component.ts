@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserInfo,ButtonState} from '../../app.component';
 
 @Component({
   selector: 'app-my-header',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyHeaderComponent implements OnInit {
 
-  constructor() { }
+  isShowSignin
+  isShowSignout
+
+  constructor() {
+    this.isShowSignin = ButtonState.isShowSignin,
+    this.isShowSignout = ButtonState.isShowSignout
+   }
 
   ngOnInit() {
   }
-
+  onClick_Logout(){
+    UserInfo.token="";
+    ButtonState.isShowSignout = false;
+  }
 }

@@ -1,3 +1,4 @@
+<button (click)="AlertToken()">token</button>
 <div class="login">
   <div class="login-block">
     <div class="col-md-6">
@@ -33,8 +34,8 @@
                <input type="checkbox"> Remember me
              </label>
           </div>
-          <p>{{uesr_name}}</p>              
-          <button type="submit" [disabled]="!myForm.form.valid" class="btn btn-default" (click)="onClick(form.username,form.password)">Sign in</button>
+          <p>{{username}}</p>              
+          <button type="submit" [disabled]="!myForm.form.valid" class="btn btn-default" (click)="onClick_Signin(form.username,form.password)" routerLinkActive="active" >Sign in</button>
           <button type="reset" class="btn btn-primary">Reset</button>
         </form>
       </div>
