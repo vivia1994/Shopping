@@ -1,12 +1,10 @@
 <div class="box-main box-flex">
-    <app-my-header  (onBarClick)="onClick_HeaderBar($event)" ></app-my-header>
-    <div class="box-body box-flex-item box-flex">
-        <div class="box-router box-flex-item">
-          <router-outlet></router-outlet>
-        </div>
+  <app-my-header></app-my-header>
+  <div class="box-body box-flex-item box-flex">
+    <div class="box-router box-flex-item">
+      <router-outlet></router-outlet>
     </div>
-    <app-my-footer></app-my-footer>
   </div>
-  
-  
-  
+  <app-my-footer></app-my-footer>
+</div>
+

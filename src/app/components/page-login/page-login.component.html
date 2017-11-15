@@ -14,23 +14,27 @@
       <div class="cool-block-bor">
         <h3>Login</h3>
         <form #myForm="ngForm">
-          <div class="form-group" name="myForm" novalidate>
-            <input type="email" [(ngModel)]="form.email" name="email" #email="ngModel" email class="form-control" required placeholder="Email"
-            />
-            <p class="text-danger" *ngIf="email.errors?.email">
-              Incorrect email.
-            </p>
+          <div class="form-group">
+              <input type="text" [(ngModel)]="form.username" name="username" #username="ngModel" [rangeLength]="[5, 9]"
+              class="form-control" required placeholder="UserName"/>
+       <p class="text-danger" *ngIf="username.errors?.rangeLength">Name's length should be 5-9.</p>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+            <!-- <input type="password" #password="ngModel" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required> -->
+            <input type="password" [(ngModel)]="form.password" name="password" #password="ngModel" [rangeLength]="[6, 20]"
+            class="form-control" required placeholder="Password"/>
           </div>
+          <input type="hidden" [(ngModel)]="form.password" name="password" #password="ngModel" [rangeLength]="[6, 20]"
+          class="form-control" required placeholder="Password"/>
+          <p class="text-danger" *ngIf="username.errors?.rangeLength">Unvalid username or wrong password.</p>          
           <div class="checkbox">
             <label>
                <input type="checkbox"> Remember me
              </label>
           </div>
-          <button type="submit" [disabled]="!myForm.form.valid" class="btn btn-default">Sign in</button>
+          <p>{{uesr_name}}</p>              
+          <button type="submit" [disabled]="!myForm.form.valid" class="btn btn-default" (click)="onClick(form.username,form.password)">Sign in</button>
           <button type="reset" class="btn btn-primary">Reset</button>
         </form>
       </div>

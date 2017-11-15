@@ -5,12 +5,13 @@ import { PageLoginComponent } from './components/page-login/page-login.component
 import { PageHomeComponent } from './components/page-home/page-home.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { MyHeaderComponent } from './components/my-header/my-header.component';
+import { Http, Response, URLSearchParams, Headers, RequestOptions, HttpModule } from '@angular/http';
 
 const routes: Routes = [
-  {
-    path: "**",
-    component: PageLoginComponent
-  },
+  // {
+  //   path: "**",
+  //   component: PageLoginComponent
+  // },
   {
     path: "login",
     component: PageLoginComponent
@@ -18,11 +19,15 @@ const routes: Routes = [
   {
     path: '',
     component: PageHomeComponent
-  }
+  },
+  {
+    path: "home",
+    component: PageHomeComponent
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), HttpModule],
   exports: [RouterModule],
   declarations: []
 })
@@ -34,3 +39,4 @@ export const routingComponents = [
   MyFooterComponent,
   ShoppingCartComponent
 ]
+export const CONST_ROUTING = RouterModule.forRoot(routes);
