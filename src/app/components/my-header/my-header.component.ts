@@ -8,15 +8,9 @@ import { PageInfoService } from '../../app.component';
   styleUrls: ['./my-header.component.scss']  
 })
 export class MyHeaderComponent implements OnInit {
-  isShowSignin;
-  isShowSignout;
-  isShowProducts1 :boolean;
-  childNameForInject: string;
   
   constructor(private pageInfoService: PageInfoService) {
-    this.isShowSignin = UserInfo.isShowSignin;
-    this.isShowSignout = UserInfo.isShowSignout;  
-    this.isShowProducts1 = false;
+
   }
 
   ngOnInit() {
@@ -24,12 +18,9 @@ export class MyHeaderComponent implements OnInit {
 
   onClick_Logout() {
     UserInfo.token = "";
-    UserInfo.isShowSignin = true;
-    this.isShowSignin =UserInfo.isShowSignin;
-    UserInfo.isShowSignout = true;
-    this.isShowSignout =UserInfo.isShowSignout;
+    this.pageInfoService.isShowSignin = true;    
+    this.pageInfoService.isShowSignout = false;
     this.pageInfoService.isShowProducts = false;   
-    this.isShowProducts1 = false;  
   }
 
 }

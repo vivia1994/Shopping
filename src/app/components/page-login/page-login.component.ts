@@ -34,37 +34,31 @@ export class PageLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    //UserInfo.isShowSign = true;
   }
 
   onClick_Signin(username, password) {
     let body = JSON.stringify({
       username: username,
       psd: password
+    });    
+    console.log("onClick_Signin", username);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    this.http.post("https://pwcfrontendtest.azurewebsites.net/login", body, options).toPromise().then((response) => {
+      if (response.json().status == "success") {
+        this.pageInfoService.isShowSignin = false;    
+        this.pageInfoService.isShowSignout = true;
+        this.pageInfoService.isShowProducts = true;
+        //alert(response.json().token);
+        this.router.navigate(['../home'], { relativeTo: this.route });
+        console.log("onClick_Signin");   
+      }
+      else {
+        alert("Invalid user or wrong password!");
+      }
     });
-    this.router.navigate(['../home'], { relativeTo: this.route });
-    UserInfo.isShowSignout = true;
-    UserInfo.isShowSignin = false;
-    this.pageInfoService.isShowProducts = true;
-    alert("vvvvvvv");
-    }
-    // this.isShowProducts1 = true;
+  }
     
-    // console.log("onClick_Signin", username);
-    // let headers = new Headers({ 'Content-Type': 'application/json' });
-    // let options = new RequestOptions({ headers: headers });
-    // this.http.post("https://pwcfrontendtest.azurewebsites.net/login", body, options).toPromise().then((response) => {
-    //   if (response.json().status == "success") {
-    //     alert(response.json().token);
-    //     this.router.navigate(['../home'], { relativeTo: this.route });
-    //     console.log("onClick_Signin");   
-    //     UserInfo.isShowSign = false;
-    //   }
-    //   else {
-    //     alert("Invalid user or wrong password!");
-    //     this.router.navigate(['../login'], { relativeTo: this.route });
-    //   }
-    // });
   AlertToken() {
     // alert(UserInfo.isShowSignin+ "  " +UserInfo.isShowSignout);
     alert(UserInfo.token);

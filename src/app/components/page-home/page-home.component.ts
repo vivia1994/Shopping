@@ -9,19 +9,12 @@ import { PageInfoService } from '../../app.component';
   
 })
 export class PageHomeComponent implements OnInit {
-  @Input() public xxx1: boolean ;  
-  xxx
   constructor(private pageInfoService: PageInfoService) {
-    this.xxx = this.pageInfoService.isShowProducts;
-    this.pageInfoService.isShowProducts = this.xxx1;
-    this.xxx = this.pageInfoService.isShowProducts;
   }
 
   ngOnInit() {
   }
   AlertToken() {
-    alert(this.xxx);
-    //alert(UserInfo.isShowSignin + "  " + UserInfo.isShowSignout);
-    //alert(UserInfo.token);
+    alert(this.pageInfoService.isShowProducts);
   }
 }

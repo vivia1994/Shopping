@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Injectable } from '@angular/core';
 
 // export const UserInfo = {
 //   token: "",
@@ -14,10 +14,16 @@ export const UserInfo = {
 //   isShowShopCart:true,
 //   isShowProducts:true
 // }
+@Injectable()
 export class PageInfoService{
   isShowShopCart:boolean;
-  isShowProducts:boolean;
-  constructor() { }
+  isShowProducts:boolean;  
+  isShowSignin:boolean;  
+  isShowSignout:boolean;
+  constructor() {
+    this.isShowSignin = true;
+    this.isShowSignout = false;
+   }
 }
 
 export const ButtonState={
