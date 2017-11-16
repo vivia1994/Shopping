@@ -1,11 +1,27 @@
 import { Component } from '@angular/core';
 
+// export const UserInfo = {
+//   token: "",
+// }
 export const UserInfo = {
-  token: ""
+  username: "",
+  status :"",
+  token: "",
+  isShowSignin:true,
+  isShowSignout:true
 }
+// export const PageInfo = {
+//   isShowShopCart:true,
+//   isShowProducts:true
+// }
+export class PageInfoService{
+  isShowShopCart:boolean;
+  isShowProducts:boolean;
+  constructor() { }
+}
+
 export const ButtonState={
-  isShowSignin:  true,
-  isShowSignout: false
+
 }
 
 @Component({

@@ -1,3 +1,4 @@
+
 <header class="box-flex-head">
     <div class="login-block"><a class="login-name" href="index.html">Shopping</a>
     </div>
@@ -46,8 +47,8 @@
     </div>
     <div class="login-block">
         <button type="Submit" class="btn btn-info btn-lg active" routerLinkActive="active" [routerLink]="['/login']" *ngIf="isShowSignin">Login</button>
-        <!-- <button type="Submit" class="btn btn-info btn-lg active" routerLinkActive="active" [routerLink]="['/home']" *ngIf="isShowSignout">Sign out</button>         -->
-        <button type="Submit" class="btn btn-info btn-lg active" routerLinkActive="active" [routerLink]="['/home']" *ngIf="isShowSignout" (click)="onClick_Logout()" >Sign out</button>        
-        <button type="Submit" class="btn btn-info btn-lg active">Signup</button>
+        <button type="Submit" class="btn btn-info btn-lg active" routerLinkActive="active" [routerLink]="['/home']" *ngIf="isShowSignout"
+            (click)="onClick_Logout()">Sign out</button>
+        <button type="Submit" class="btn btn-info btn-lg active">ShopCart</button>
     </div>
 </header>
