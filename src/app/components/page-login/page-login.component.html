@@ -36,7 +36,7 @@
              </label>
           </div>
           <button type="submit" [disabled]="!myForm.form.valid" class="btn btn-default" (click)="onClick_Signin(form.username,form.password)"
-            routerLinkActive="active">Sign in</button>
+            routerLinkActive="active">{{strButton}}</button>
           <button type="reset" class="btn btn-primary">Reset</button>
         </form>
       </div>

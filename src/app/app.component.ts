@@ -3,12 +3,11 @@ import { Component,Injectable } from '@angular/core';
 // export const UserInfo = {
 //   token: "",
 // }
-export const UserInfo = {
-  username: "",
-  status :"",
-  token: "",
-  isShowSignin:true,
-  isShowSignout:true
+@Injectable()
+export class UserInfo  {
+  username: string;
+  status :string;
+  token: string;
 }
 // export const PageInfo = {
 //   isShowShopCart:true,
@@ -21,9 +20,17 @@ export class PageInfoService{
   isShowSignin:boolean;  
   isShowSignout:boolean;
   constructor() {
+    this.isShowProducts = false;
     this.isShowSignin = true;
     this.isShowSignout = false;
    }
+}
+
+export class Products{
+  name:string;
+  price: number;  
+  description: string;
+  imgurl: string;
 }
 
 export const ButtonState={

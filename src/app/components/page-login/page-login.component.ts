@@ -19,11 +19,13 @@ import { PageInfoService } from '../../app.component';
 export class PageLoginComponent implements OnInit {
   
   form: FormGroup;
+  strButton:string;
 
   constructor(private http: Http, 
     private route: ActivatedRoute, 
     private router: Router,
     private pageInfoService: PageInfoService,
+    private userInfo:UserInfo
   ) {
     this.form = new FormGroup({
       num: new FormControl('', CustomValidators.num),
@@ -31,12 +33,14 @@ export class PageLoginComponent implements OnInit {
       password: new FormControl('', CustomValidators.range([5, 9])),
     });
     this.pageInfoService.isShowProducts = false;
+    this.strButton = "Sign in";
   }
 
   ngOnInit() {
   }
 
   onClick_Signin(username, password) {
+    this.strButton = "Signing in...";    
     let body = JSON.stringify({
       username: username,
       psd: password
@@ -46,6 +50,9 @@ export class PageLoginComponent implements OnInit {
     let options = new RequestOptions({ headers: headers });
     this.http.post("https://pwcfrontendtest.azurewebsites.net/login", body, options).toPromise().then((response) => {
       if (response.json().status == "success") {
+        this.userInfo.status = response.json().status;
+        this.userInfo.token =  response.json().token;
+        this.userInfo.username = username;
         this.pageInfoService.isShowSignin = false;    
         this.pageInfoService.isShowSignout = true;
         this.pageInfoService.isShowProducts = true;
@@ -54,6 +61,7 @@ export class PageLoginComponent implements OnInit {
         console.log("onClick_Signin");   
       }
       else {
+        this.strButton = "Sign in";        
         alert("Invalid user or wrong password!");
       }
     });
@@ -61,7 +69,7 @@ export class PageLoginComponent implements OnInit {
     
   AlertToken() {
     // alert(UserInfo.isShowSignin+ "  " +UserInfo.isShowSignout);
-    alert(UserInfo.token);
+    alert(this.userInfo.token);
   }
 
 }

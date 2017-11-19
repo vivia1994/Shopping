@@ -9,7 +9,7 @@ import { PageInfoService } from '../../app.component';
 })
 export class MyHeaderComponent implements OnInit {
   
-  constructor(private pageInfoService: PageInfoService) {
+  constructor(private pageInfoService: PageInfoService,private userInfo:UserInfo ) {
 
   }
 
@@ -17,7 +17,7 @@ export class MyHeaderComponent implements OnInit {
   }
 
   onClick_Logout() {
-    UserInfo.token = "";
+    this.userInfo.token = "";
     this.pageInfoService.isShowSignin = true;    
     this.pageInfoService.isShowSignout = false;
     this.pageInfoService.isShowProducts = false;   

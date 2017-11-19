@@ -40,3 +40,35 @@ h3{
     border-bottom: 3px solid #eee;
     border-radius: 6 px;
 }
+
+.product-container{
+    display: flex;
+    justify-content: space-between;
+}
+.item-price{
+    margin: 0 10px;
+    display: block;
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .item-priceshow{
+        margin: 14px 5px;
+        padding: 0 10px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: bold;
+        background: #16cbe6;
+        color: #fff;
+        text-align: center;
+        float: left;
+    }
+
+    .item-shoppingcart{
+        float: right;
+        margin: 7px 5px;
+        font-size: 13px;
+    }             
+}

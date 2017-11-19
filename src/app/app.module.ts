@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AlertModule } from 'ng2-bootstrap';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
-import { AppComponent,PageInfoService } from './app.component';
+import { AppComponent,PageInfoService,UserInfo } from './app.component';
 import { Jquery } from 'jquery';
 import {CustomFormsModule} from "ng2-validation";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -33,7 +33,7 @@ import { CONST_ROUTING } from './app-routing.module';
     CONST_ROUTING,
     AlertModule.forRoot()
   ],
-  providers: [PageInfoService],
+  providers: [PageInfoService,UserInfo],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
