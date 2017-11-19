@@ -114,9 +114,11 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return UserInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return UserInfo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return PageInfoService; });
-/* unused harmony export ButtonState */
+/* unused harmony export Products */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return ShopItems; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return ShopCart; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -132,19 +134,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 // export const UserInfo = {
 //   token: "",
 // }
-var UserInfo = {
-    username: "",
-    status: "",
-    token: "",
-    isShowSignin: true,
-    isShowSignout: true
-};
+var UserInfo = (function () {
+    function UserInfo() {
+    }
+    return UserInfo;
+}());
+UserInfo = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+], UserInfo);
+
 // export const PageInfo = {
 //   isShowShopCart:true,
 //   isShowProducts:true
 // }
 var PageInfoService = (function () {
     function PageInfoService() {
+        this.isShowProducts = false;
         this.isShowSignin = true;
         this.isShowSignout = false;
     }
@@ -155,7 +160,25 @@ PageInfoService = __decorate([
     __metadata("design:paramtypes", [])
 ], PageInfoService);
 
-var ButtonState = {};
+var Products = (function () {
+    function Products() {
+    }
+    return Products;
+}());
+
+var ShopItems = (function () {
+    function ShopItems() {
+    }
+    return ShopItems;
+}());
+
+var ShopCart = (function () {
+    function ShopCart() {
+        this.shopItems = new Array();
+    }
+    return ShopCart;
+}());
+
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'app';
@@ -214,6 +237,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = (function () {
     function AppModule() {
     }
@@ -239,7 +263,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__app_routing_module__["b" /* CONST_ROUTING */],
             __WEBPACK_IMPORTED_MODULE_2_ng2_bootstrap__["a" /* AlertModule */].forRoot()
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_4__app_component__["b" /* PageInfoService */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_4__app_component__["b" /* PageInfoService */], __WEBPACK_IMPORTED_MODULE_4__app_component__["e" /* UserInfo */], __WEBPACK_IMPORTED_MODULE_4__app_component__["c" /* ShopCart */], __WEBPACK_IMPORTED_MODULE_4__app_component__["d" /* ShopItems */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -312,7 +336,7 @@ MyFooterComponent = __decorate([
 /***/ "../../../../../src/app/components/my-header/my-header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<header class=\"box-flex-head\">\r\n    <div class=\"login-block\"><a class=\"login-name\" href=\"index.html\">Shopping</a>\r\n    </div>\r\n    <div class=\"login-block\">\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n              Home <span class=\"caret\"></span>\r\n            </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a routerLinkActive=\"active\" [routerLink]=\"['/home']\">Revolution Slider</a></li>\r\n                <li><a routerLinkActive=\"active\" [routerLink]=\"['/home']\">Bootstrap Slider</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                  Account <span class=\"caret\"></span>\r\n                </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">My Account</a></li>\r\n                <li><a href=\"#\">View Cart</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                      Pages <span class=\"caret\"></span>\r\n                    </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">404</a></li>\r\n                <li><a href=\"#\">FAQ</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                          Coputers <span class=\"caret\"></span>\r\n                        </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">Desktop</a></li>\r\n                <li><a href=\"#\">Lattop</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                              Contact\r\n                            </button>\r\n        </div>\r\n    </div>\r\n    <div class=\"login-block\">\r\n        <button type=\"Submit\" class=\"btn btn-info btn-lg active\" routerLinkActive=\"active\" [routerLink]=\"['/login']\" *ngIf=\"pageInfoService.isShowSignin\">Login</button>\r\n        <button type=\"Submit\" class=\"btn btn-info btn-lg active\" routerLinkActive=\"active\" [routerLink]=\"['/home']\" *ngIf=\"pageInfoService.isShowSignout\"\r\n            (click)=\"onClick_Logout()\">Sign out</button>\r\n        <button type=\"Submit\" class=\"btn btn-info btn-lg active\">ShopCart</button>\r\n    </div>\r\n</header>"
+module.exports = "<header class=\"box-flex-head\">\r\n    <div class=\"login-block\"><a class=\"login-name\" href=\"index.html\">Shopping</a>\r\n    </div>\r\n    <div class=\"login-block\">\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n              Home <span class=\"caret\"></span>\r\n            </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a routerLinkActive=\"active\" [routerLink]=\"['/home']\">Revolution Slider</a></li>\r\n                <li><a routerLinkActive=\"active\" [routerLink]=\"['/home']\">Bootstrap Slider</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                  Account <span class=\"caret\"></span>\r\n                </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">My Account</a></li>\r\n                <li><a href=\"#\">View Cart</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                      Pages <span class=\"caret\"></span>\r\n                    </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">404</a></li>\r\n                <li><a href=\"#\">FAQ</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                          Coputers <span class=\"caret\"></span>\r\n                        </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">Desktop</a></li>\r\n                <li><a href=\"#\">Lattop</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                              Contact\r\n                            </button>\r\n        </div>\r\n    </div>\r\n    <div class=\"login-block\">\r\n        <button type=\"Submit\" class=\"btn btn-info btn-lg active\" routerLinkActive=\"active\" [routerLink]=\"['/login']\" *ngIf=\"pageInfoService.isShowSignin\">Login</button>\r\n        <button type=\"Submit\" class=\"btn btn-info btn-lg active\" routerLinkActive=\"active\" [routerLink]=\"['/home']\" *ngIf=\"pageInfoService.isShowSignout\" (click)=\"onClick_Logout()\">Sign out</button>\r\n\r\n        <button type=\"button\" class=\"btn btn-info btn-lg active\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\">ShopCart</button>\r\n        <div class=\"modal fade bs-example-modal-sm\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"mySmallModalLabel\">\r\n            <div class=\"modal-dialog modal-sm\" role=\"document\">\r\n                <div class=\"modal-content\">\r\n                    <h5>Shopping Cart</h5>\r\n                    <hr>\r\n                    <div>\r\n                        <table class=\"table table-striped\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>Name</th>\r\n                                    <th>Quantity</th>\r\n                                    <th>Price</th>\r\n                                    <th></th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of shopCartItems.shopItems\">\r\n                                    <td class=\"color\">\r\n                                        {{item.name}}\r\n                                    </td>\r\n                                    <td class=\"trquantity\">\r\n                                        <div class=\"quantity\">\r\n                                            <div class=\"input-group spinner\">\r\n                                                <input type=\"text\" class=\"form-control\" value=\"{{item.num}}\">\r\n                                                <div class=\"input-group-btn-vertical\">\r\n                                                    <button class=\"btn btn-default\" type=\"button\" (click)=\"addToCart(item)\">\r\n                                            <i class=\"fa fa-caret-up\"></i>\r\n                                          </button>\r\n                                                    <button class=\"btn btn-default\" type=\"button\" (click)=\"deleteFromCart(item)\">\r\n                                            <i class=\"fa fa-caret-down\"></i>\r\n                                          </button>\r\n                                                </div>\r\n                                            </div>\r\n                                        </div>\r\n                                    </td>\r\n                                    <td>\r\n                                        {{item.price}}$\r\n                                    </td>\r\n                                    <td>\r\n                                        <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"DeletefromShoppingCart(item)\">\r\n                                      <span aria-hidden=\"true\">&times;</span>\r\n                                    </button>\r\n                                    </td>\r\n                                </tr>\r\n                                <!-- <tr>\r\n                                    <td></td>\r\n                                    <td>Total</td>\r\n                                    <td colspan=\"2\">{{sessionSvc.ShoppingCart.totalPrice | price:'$'}}</td>\r\n                                </tr> -->\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</header>"
 
 /***/ }),
 
@@ -352,15 +376,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var MyHeaderComponent = (function () {
-    function MyHeaderComponent(pageInfoService) {
+    function MyHeaderComponent(pageInfoService, userInfo, shopCartItems, shopItem) {
         this.pageInfoService = pageInfoService;
+        this.userInfo = userInfo;
+        this.shopCartItems = shopCartItems;
+        this.shopItem = shopItem;
     }
     MyHeaderComponent.prototype.ngOnInit = function () {
     };
+    MyHeaderComponent.prototype.addToCart = function (shopItem) {
+        this.shopItem = shopItem;
+        if (this.shopCartItems.shopItems.indexOf(this.shopItem) != -1) {
+            this.shopCartItems.shopItems.splice(this.shopCartItems.shopItems.indexOf(shopItem), 1);
+            this.shopItem.num = this.shopItem.num + 1;
+            this.shopCartItems.shopItems.push(this.shopItem);
+        }
+    };
+    MyHeaderComponent.prototype.DeletefromShoppingCart = function (shopItem) {
+    };
+    MyHeaderComponent.prototype.deleteFromCart = function (shopItem) {
+    };
+    // deleteFromCart(product){
+    //   if(this.shopCartItems.products.indexOf(product) != -1){
+    //     this.shopCartItems.products.splice(this.shopCartItems.products.indexOf(product),1);
+    //     this.shopCartItems.products.find(product).num =   this.shopCartItems.products.find(product).num-1;    
+    //   }
     MyHeaderComponent.prototype.onClick_Logout = function () {
-        __WEBPACK_IMPORTED_MODULE_1__app_component__["c" /* UserInfo */].token = "";
+        this.userInfo.token = "";
         this.pageInfoService.isShowSignin = true;
         this.pageInfoService.isShowSignout = false;
         this.pageInfoService.isShowProducts = false;
@@ -373,10 +416,10 @@ MyHeaderComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/my-header/my-header.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/my-header/my-header.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["b" /* PageInfoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["b" /* PageInfoService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["b" /* PageInfoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["b" /* PageInfoService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["e" /* UserInfo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["e" /* UserInfo */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["c" /* ShopCart */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["c" /* ShopCart */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["d" /* ShopItems */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["d" /* ShopItems */]) === "function" && _d || Object])
 ], MyHeaderComponent);
 
-var _a;
+var _a, _b, _c, _d;
 //# sourceMappingURL=my-header.component.js.map
 
 /***/ }),
@@ -384,7 +427,7 @@ var _a;
 /***/ "../../../../../src/app/components/page-home/page-home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<!-- <button (click)=\"AlertToken()\">token</button> -->\n<div class=\"home\">\n  <div class=\"home-page\">\n    <img src=\"assets/images/back1.jpg\" class=\"img-responsive\" alt=\"Responsive image\">\n  </div>\n  <div class=\"col-md-12\">\n    <!-- Catchy title -->\n    <h3>It<span class=\"color\">'</span>s Lorem ipsum <span class=\"color\">dolor</span> sit amet consectetur</h3>\n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique est sit amet diam interdum semper. Vestibulum\n      condimentum ante urna, vel interdum odio accumsan id.</p>\n  </div>\n  <h1 *ngIf=\"!pageInfoService.isShowProducts\" routerLinkActive=\"active\" [routerLink]=\"['/login']\"><a>Login to see product list.</a></h1>\n  <div *ngIf=\"pageInfoService.isShowProducts\">\n    <span class=\"product\">\n      <div class=\"s-item\">\n          <a href=\"single-item.html\">\n            <img src=\"assets/images/2.png\" class=\"img-responsive\" alt=\"\">\n          </a>\n          <div class=\"s-caption\">\n            <h4><a href=\"#\">Finibus Bonorum</a></h4>\n            <p>Clintock, a Lat Hampden-Sydney College in Virginia.</p>\n          </div>\n        </div>\n  </span>\n  <span class=\"product\">\n      <div class=\"s-item\">\n          <a href=\"single-item.html\">\n            <img src=\"assets/images/3.png\" class=\"img-responsive\" alt=\"\">\n          </a>\n          <div class=\"s-caption\">\n            <h4><a href=\"#\">Finibus Bonorum</a></h4>\n            <p>Clintock, a Lat Hampden-Sydney College in Virginia.</p>\n          </div>\n        </div>  </span>\n  <span class=\"product\">\n      <div class=\"s-item\">\n          <a href=\"single-item.html\">\n            <img src=\"assets/images/4.png\" class=\"img-responsive\" alt=\"\">\n          </a>\n          <div class=\"s-caption\">\n            <h4><a href=\"#\">Finibus Bonorum</a></h4>\n            <p>Clintock, a Lat Hampden-Sydney College in Virginia.</p>\n          </div>\n        </div>  </span>\n  <span class=\"product\">\n      <div class=\"s-item\">\n          <a href=\"single-item.html\">\n            <img src=\"assets/images/5.png\" class=\"img-responsive\" alt=\"\">\n          </a>\n          <div class=\"s-caption\">\n            <h4><a href=\"#\">Finibus Bonorum</a></h4>\n            <p>Clintock, a Lat Hampden-Sydney College in Virginia.</p>\n          </div>\n        </div>  </span></div>\n  </div>\n"
+module.exports = "<button (click)=\"AlertToken()\">token</button>\n<div class=\"home\">\n  <div class=\"home-page\">\n    <img src=\"assets/images/back1.jpg\" class=\"img-responsive\" alt=\"Responsive image\">\n  </div>\n  <div class=\"col-md-12\">\n    <!-- Catchy title -->\n    <h3>It<span class=\"color\">'</span>s Lorem ipsum <span class=\"color\">dolor</span> sit amet consectetur</h3>\n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique est sit amet diam interdum semper. Vestibulum\n      condimentum ante urna, vel interdum odio accumsan id.</p>\n  </div>\n  <h1 *ngIf=\"!pageInfoService.isShowProducts\" routerLinkActive=\"active\" [routerLink]=\"['/login']\"><a>Login</a> to see the product list.</h1>\n  <div class=\"product-container\" *ngIf=\"pageInfoService.isShowProducts\">\n    <span class=\"product\" *ngFor=\"let product of products;\">\n      <div class=\"s-item\">\n          <a href=\"single-item.html\">\n              <img src=\"{{product.imgurl}}\" class=\"img-responsive\">\n          </a>\n          <span>{{product.name}}</span>\n    <p> {{product.description}}</p>\n    <hr>\n    <div class=\"item\">\n        <span class=\"item-price\">{{product.price}}$</span>\n        <button class=\"btn btn-danger btn-sm btn-animate item-price\" (click)=\"addToCart(product)\">Add to Cart</button>\n    </div>\n  </div>\n  </span>\n</div>\n</div>\n\n\n<!-- <div *ngFor=\"let product of products;\" class=\"col-lg-3 col-md-3 col-sm-6 col-xs-12\">\n  <div class=\"item\">\n    <div class=\"item-img\">\n      <img src=\"{{product.imgurl}}\" class=\"img-responsive\">\n    </div>\n    <div class=\"item-name\">\n      <span>{{product.name}}</span>\n    </div>\n    <div class=\"item-des\">\n      {{product.description}}\n    </div>\n    <hr>\n    <div class=\"item-price\">\n      <div class=\"item-priceshow\">\n        {{product.price | price:'$'}}\n      </div>\n      <div class=\"item-shoppingcart\">\n        <button appBtnAddCart class=\"btn btn-danger btn-sm btn-animate\" (click)=\"addToCart(product)\">\n                <em>Add to Cart</em>\n                <svg x=\"0px\" y=\"0px\" width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\">\n                  <path stroke-dasharray=\"19.79 19.79\" stroke-dashoffset=\"19.79\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-miterlimit=\"10\" d=\"M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11\"></path>\n                </svg>\n              </button>\n        <a appBtnAddCart (click)=\"addToCart(product)\" class=\"btn btn-danger btn-sm\">Add to cart</a>\n      </div>\n    </div>\n  </div>\n</div> -->"
 
 /***/ }),
 
@@ -396,7 +439,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".home {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between; }\n\n.home-image {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-preferred-size: 100%;\n      flex-basis: 100%;\n  -ms-flex-negative: 1;\n      flex-shrink: 1; }\n\nh3 {\n  font-family: 'Open Sans Condensed', sans-serif;\n  color: inherit;\n  margin-top: 18px;\n  margin-bottom: 9px;\n  font-size: 50px; }\n\n.product {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  display: flex;\n  -ms-flex-preferred-size: 20%;\n      flex-basis: 20%;\n  color: #000000;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\n\n.product img {\n  max-height: 150px; }\n\n.s-item {\n  max-width: 250px;\n  background: #fff;\n  margin: 0 auto;\n  margin-top: 40px;\n  margin-bottom: 10px;\n  padding: 5px;\n  text-align: center;\n  border: 1px solid #eee;\n  border-right: 3px solid #eee;\n  border-bottom: 3px solid #eee;\n  border-radius: 6 px; }\n", ""]);
+exports.push([module.i, ".home {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between; }\n\n.home-image {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-preferred-size: 100%;\n      flex-basis: 100%;\n  -ms-flex-negative: 1;\n      flex-shrink: 1; }\n\nh3 {\n  font-family: 'Open Sans Condensed', sans-serif;\n  color: inherit;\n  margin-top: 18px;\n  margin-bottom: 9px;\n  font-size: 50px; }\n\n.product {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  display: flex;\n  -ms-flex-preferred-size: 25%;\n      flex-basis: 25%;\n  color: #000000;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\n\n.product img {\n  max-height: 150px; }\n\n.s-item {\n  max-width: 250px;\n  background: #fff;\n  margin: 0 auto;\n  margin-top: 40px;\n  margin-bottom: 10px;\n  padding: 5px;\n  text-align: center;\n  border: 1px solid #eee;\n  border-right: 3px solid #eee;\n  border-bottom: 3px solid #eee;\n  border-radius: 6 px; }\n\n.product-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n\n.item-price {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-preferred-size: 50%;\n      flex-basis: 50%; }\n\n.item {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap;\n  -webkit-box-align: end;\n      -ms-flex-align: end;\n          align-items: flex-end; }\n", ""]);
 
 // exports
 
@@ -412,7 +455,10 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PageHomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_bluebird__ = __webpack_require__("../../../../bluebird/js/browser/bluebird.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_bluebird___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_bluebird__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -424,14 +470,79 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var PageHomeComponent = (function () {
-    function PageHomeComponent(pageInfoService) {
+    function PageHomeComponent(pageInfoService, http, userInfo, shopCartItems, shopItems) {
         this.pageInfoService = pageInfoService;
+        this.http = http;
+        this.userInfo = userInfo;
+        this.shopCartItems = shopCartItems;
+        this.shopItems = shopItems;
     }
     PageHomeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        if (this.pageInfoService.isShowProducts) {
+            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
+            headers.append('RequestVerificationToken', this.userInfo.token);
+            var options_1 = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+            return new __WEBPACK_IMPORTED_MODULE_2_bluebird__["Promise"](function (resolve, reject) {
+                _this.http
+                    .get("https://pwcfrontendtest.azurewebsites.net/getlist", options_1)
+                    .subscribe(function (dataJson) {
+                    _this.products = dataJson.json().res;
+                    resolve(_this.products);
+                });
+            });
+        }
+    };
+    PageHomeComponent.prototype.addToCart = function (product) {
+        console.log("0------------");
+        this.shopItems.name = product.name;
+        if (this.shopCartItems.shopItems == undefined) {
+            console.log("1------------");
+            this.shopItems.name = product.name;
+            this.shopItems.price = product.price;
+            this.shopItems.num = 1;
+            this.shopCartItems.shopItems.push(this.shopItems);
+            console.log("1------------1");
+        }
+        else if (this.shopCartItems.shopItems.length == 0) {
+            console.log("2------------");
+            this.shopItems.name = product.name;
+            this.shopItems.price = product.price;
+            this.shopItems.num = 1;
+            this.shopCartItems.shopItems.push(this.shopItems);
+            alert("1___" + product.name + "__" + product.price + "__" + this.shopCartItems.shopItems.length);
+        }
+        else {
+            console.log("3------------");
+            var i = 1;
+            for (var _i = 0, _a = this.shopCartItems.shopItems; _i < _a.length; _i++) {
+                var item = _a[_i];
+                if (item.name = product.name) {
+                    console.log("4------------");
+                    this.shopCartItems.shopItems.splice(this.shopCartItems.shopItems.indexOf(item), 1);
+                    this.shopItems.num = this.shopItems.num + 1;
+                    this.shopItems.price = this.shopItems.price + product.price;
+                    this.shopCartItems.shopItems.push(this.shopItems);
+                    alert("2___" + product.name + "__" + product.price + "__" + this.shopCartItems.shopItems.length);
+                    break;
+                }
+                else if (i = this.shopCartItems.shopItems.length) {
+                    console.log("5------------");
+                    this.shopItems.name = product.name;
+                    this.shopItems.price = product.price;
+                    this.shopItems.num = 1;
+                    this.shopCartItems.shopItems.push(this.shopItems);
+                    alert("3___" + product.name + "__" + product.price + "__" + this.shopCartItems.shopItems.length);
+                }
+                i = i + 1;
+            }
+        }
     };
     PageHomeComponent.prototype.AlertToken = function () {
-        alert(this.pageInfoService.isShowProducts);
+        alert("token__  " + this.pageInfoService.isShowProducts + "__" + this.userInfo.token);
     };
     return PageHomeComponent;
 }());
@@ -441,10 +552,10 @@ PageHomeComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/page-home/page-home.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/page-home/page-home.component.scss")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["b" /* PageInfoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["b" /* PageInfoService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__app_component__["b" /* PageInfoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_component__["b" /* PageInfoService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_component__["e" /* UserInfo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_component__["e" /* UserInfo */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__app_component__["c" /* ShopCart */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_component__["c" /* ShopCart */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__app_component__["d" /* ShopItems */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_component__["d" /* ShopItems */]) === "function" && _e || Object])
 ], PageHomeComponent);
 
-var _a;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=page-home.component.js.map
 
 /***/ }),
@@ -452,7 +563,7 @@ var _a;
 /***/ "../../../../../src/app/components/page-login/page-login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<button (click)=\"AlertToken()\">token</button>\n<div class=\"login\">\n  <div class=\"login-block\">\n    <div class=\"col-md-6\">\n      <div class=\"reg-login-info\">\n        <h2>Login to Access Amazing Benefits <span class=\"color\">!!!</span></h2>\n        <img src=\"assets/images/back1.jpg\" alt=\"\" class=\"img-responsive img-thumbnail\">\n        <p>Duis leo risus, vehicula luctus nunc. Quiue rhoncus, a sodales enim arcu quis turpis. Duis leo risus, condimentum\n          ut posuere ac, vehicula luctus nunc. Quisque rhoncus, a sodales enim arcu quis turpis.</p>\n      </div>\n    </div>\n  </div>\n  <div class=\"login-block\">\n    <div class=\"col-md-6\">\n      <div class=\"cool-block-bor\">\n        <h3>Login</h3>\n        <form #myForm=\"ngForm\">\n          <div class=\"form-group\">\n            <input type=\"text\" [(ngModel)]=\"form.username\" name=\"username\" #username=\"ngModel\" [rangeLength]=\"[5, 9]\" class=\"form-control\"\n              required placeholder=\"UserName\" />\n            <p class=\"text-danger\" *ngIf=\"username.errors?.rangeLength\">Name's length should be 5-9.</p>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"exampleInputPassword1\">Password</label>\n            <!-- <input type=\"password\" #password=\"ngModel\" name=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\" required> -->\n            <input type=\"password\" [(ngModel)]=\"form.password\" name=\"password\" #password=\"ngModel\" [rangeLength]=\"[6, 20]\" class=\"form-control\"\n              required placeholder=\"Password\" />\n            <p class=\"text-danger\" *ngIf=\"username.errors?.rangeLength\">Unvalid username or wrong password.</p>\n          </div>\n          <!-- <input type=\"hidden\" [(ngModel)]=\"form.password\" name=\"password\" #password=\"ngModel\" [rangeLength]=\"[6, 20]\" class=\"form-control\"\n            required placeholder=\"Password\" /> -->\n          <div class=\"checkbox\">\n            <label>\n               <input type=\"checkbox\"> Remember me\n             </label>\n          </div>\n          <button type=\"submit\" [disabled]=\"!myForm.form.valid\" class=\"btn btn-default\" (click)=\"onClick_Signin(form.username,form.password)\"\n            routerLinkActive=\"active\">Sign in</button>\n          <button type=\"reset\" class=\"btn btn-primary\">Reset</button>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "\n<button (click)=\"AlertToken()\">token</button>\n<div class=\"login\">\n  <div class=\"login-block\">\n    <div class=\"col-md-6\">\n      <div class=\"reg-login-info\">\n        <h2>Login to Access Amazing Benefits <span class=\"color\">!!!</span></h2>\n        <img src=\"assets/images/back1.jpg\" alt=\"\" class=\"img-responsive img-thumbnail\">\n        <p>Duis leo risus, vehicula luctus nunc. Quiue rhoncus, a sodales enim arcu quis turpis. Duis leo risus, condimentum\n          ut posuere ac, vehicula luctus nunc. Quisque rhoncus, a sodales enim arcu quis turpis.</p>\n      </div>\n    </div>\n  </div>\n  <div class=\"login-block\">\n    <div class=\"col-md-6\">\n      <div class=\"cool-block-bor\">\n        <h3>Login</h3>\n        <form #myForm=\"ngForm\">\n          <div class=\"form-group\">\n            <input type=\"text\" [(ngModel)]=\"form.username\" name=\"username\" #username=\"ngModel\" [rangeLength]=\"[5, 9]\" class=\"form-control\"\n              required placeholder=\"UserName\" />\n            <p class=\"text-danger\" *ngIf=\"username.errors?.rangeLength\">Name's length should be 5-9.</p>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"exampleInputPassword1\">Password</label>\n            <!-- <input type=\"password\" #password=\"ngModel\" name=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\" required> -->\n            <input type=\"password\" [(ngModel)]=\"form.password\" name=\"password\" #password=\"ngModel\" [rangeLength]=\"[6, 20]\" class=\"form-control\"\n              required placeholder=\"Password\" />\n            <p class=\"text-danger\" *ngIf=\"username.errors?.rangeLength\">Unvalid username or wrong password.</p>\n          </div>\n          <!-- <input type=\"hidden\" [(ngModel)]=\"form.password\" name=\"password\" #password=\"ngModel\" [rangeLength]=\"[6, 20]\" class=\"form-control\"\n            required placeholder=\"Password\" /> -->\n          <div class=\"checkbox\">\n            <label>\n               <input type=\"checkbox\"> Remember me\n             </label>\n          </div>\n          <button type=\"submit\" [disabled]=\"!myForm.form.valid\" class=\"btn btn-default\" (click)=\"onClick_Signin(form.username,form.password)\"\n            routerLinkActive=\"active\">{{strButton}}</button>\n          <button type=\"reset\" class=\"btn btn-primary\">Reset</button>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -504,22 +615,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 // import { ShowSignService } from '../../common.service';
 
 var PageLoginComponent = (function () {
-    function PageLoginComponent(http, route, router, pageInfoService) {
+    function PageLoginComponent(http, route, router, pageInfoService, userInfo) {
         this.http = http;
         this.route = route;
         this.router = router;
         this.pageInfoService = pageInfoService;
+        this.userInfo = userInfo;
         this.form = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormGroup"]({
             num: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_2_ng2_validation__["CustomValidators"].num),
             username: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_2_ng2_validation__["CustomValidators"].range([5, 9])),
             password: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_2_ng2_validation__["CustomValidators"].range([5, 9])),
         });
         this.pageInfoService.isShowProducts = false;
+        this.strButton = "Sign in";
     }
     PageLoginComponent.prototype.ngOnInit = function () {
     };
     PageLoginComponent.prototype.onClick_Signin = function (username, password) {
         var _this = this;
+        this.strButton = "Signing in...";
         var body = JSON.stringify({
             username: username,
             psd: password
@@ -529,6 +643,9 @@ var PageLoginComponent = (function () {
         var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */]({ headers: headers });
         this.http.post("https://pwcfrontendtest.azurewebsites.net/login", body, options).toPromise().then(function (response) {
             if (response.json().status == "success") {
+                _this.userInfo.status = response.json().status;
+                _this.userInfo.token = response.json().token;
+                _this.userInfo.username = username;
                 _this.pageInfoService.isShowSignin = false;
                 _this.pageInfoService.isShowSignout = true;
                 _this.pageInfoService.isShowProducts = true;
@@ -537,13 +654,14 @@ var PageLoginComponent = (function () {
                 console.log("onClick_Signin");
             }
             else {
+                _this.strButton = "Sign in";
                 alert("Invalid user or wrong password!");
             }
         });
     };
     PageLoginComponent.prototype.AlertToken = function () {
         // alert(UserInfo.isShowSignin+ "  " +UserInfo.isShowSignout);
-        alert(__WEBPACK_IMPORTED_MODULE_5__app_component__["c" /* UserInfo */].token);
+        alert(this.userInfo.token);
     };
     return PageLoginComponent;
 }());
@@ -553,10 +671,10 @@ PageLoginComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/page-login/page-login.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/page-login/page-login.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* PageInfoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* PageInfoService */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* PageInfoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* PageInfoService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__app_component__["e" /* UserInfo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__app_component__["e" /* UserInfo */]) === "function" && _e || Object])
 ], PageLoginComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=page-login.component.js.map
 
 /***/ }),
