@@ -26,6 +26,7 @@ export class PageInfoService{
    }
 }
 
+
 export class Products{
   name:string;
   price: number;  
@@ -33,9 +34,33 @@ export class Products{
   imgurl: string;
 }
 
-export const ButtonState={
-
+export class ShopItems {
+  name:string;
+  price: number;  
+  num:number;
 }
+
+export class ShopCart{
+
+  shopItems:Array<ShopItems>;  
+    
+  constructor(){
+    this.shopItems = new Array<ShopItems>();
+  }
+
+  // push(product:Products){
+  //   let object = this.products;
+  //   object.push(product);
+  //   this.products = object;
+  // }
+
+  // reduce(product:Products){
+  //   let object = this.products;
+  //   object.pop(product);
+  //   this.products = object;
+  // }
+}
+
 
 @Component({
   selector: 'app-root',

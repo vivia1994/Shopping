@@ -19,7 +19,7 @@ h3{
     display: flex;
     justify-content: center;
     display: flex;
-    flex-basis: 20%;
+    flex-basis: 25%;
     color: #000000;
     flex-wrap: nowrap;
     
@@ -44,31 +44,16 @@ h3{
 .product-container{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 .item-price{
-    margin: 0 10px;
-    display: block;
-    &:after {
-        content: '';
-        display: block;
-        clear: both;
-    }
+    display: flex;
+    flex-basis: 50%;
+}
 
-    .item-priceshow{
-        margin: 14px 5px;
-        padding: 0 10px;
-        border-radius: 5px;
-        font-size: 13px;
-        font-weight: bold;
-        background: #16cbe6;
-        color: #fff;
-        text-align: center;
-        float: left;
-    }
-
-    .item-shoppingcart{
-        float: right;
-        margin: 7px 5px;
-        font-size: 13px;
-    }             
+.item{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: flex-end;
 }

@@ -4,7 +4,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 import { Http, Response, URLSearchParams, Headers, RequestOptions } from '@angular/http';
 import { Route, Router, ActivatedRoute, Params } from '@angular/router';
-import { UserInfo, ButtonState } from '../../app.component';
+import { UserInfo } from '../../app.component';
 // import { ShowSignService } from '../../common.service';
 import { PageInfoService } from '../../app.component';
 
