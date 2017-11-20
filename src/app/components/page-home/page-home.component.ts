@@ -18,7 +18,8 @@ export class PageHomeComponent implements OnInit {
   constructor(private pageInfoService: PageInfoService,
     private http: Http,
     private userInfo: UserInfo,
-    private shopCartItems: ShopCartItem) {
+    private shopCartItems: ShopCartItem    ,
+    private shopItems: ShopItems) {
   }
 
   ngOnInit() {
@@ -39,6 +40,7 @@ export class PageHomeComponent implements OnInit {
   }
 
   addToShopCart(product: Products) {
+    let totalPriceTemp = 0;
     let newItem = new ShopItems();
     let isFound = false;
     for (let item of this.shopCartItems.shopCartItems) {
@@ -54,6 +56,13 @@ export class PageHomeComponent implements OnInit {
       newItem.price = product.price;
       newItem.num = 1;
       this.shopCartItems.shopCartItems.push(newItem);
+    }
+    for (let item of this.shopCartItems.shopCartItems) {
+      totalPriceTemp += item.price;
+    }
+    this.shopItems.totalPrice = totalPriceTemp;
+    for (let item of this.shopCartItems.shopCartItems) {
+       item.totalPrice= totalPriceTemp;
     }
   }
 

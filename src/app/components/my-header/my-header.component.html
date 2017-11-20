@@ -73,7 +73,7 @@
                                         <div class="quantity">
                                             <div class="input-group spinner">
                                                 <a class="btn btn-default btn-xs"  (click)="reduceFromShopCart(item)" role="button">-</a>
-                                                <button type="button" class="btn btn-default btn-lg" disabled="disabled" >{{item.num}}</button>                                                
+                                                <button type="button" class="btn btn-default btn-lg btn-xs" disabled="disabled" >{{item.num}}</button>                                                
                                                 <a class="btn btn-default btn-xs"  (click)="addToShopCart(item)" role="button">+</a>
                                             </div>
                                         </div>
@@ -87,11 +87,11 @@
                                     </button>
                                     </td>
                                 </tr>
-                                <!-- <tr>
+                                <tr>
                                     <td></td>
                                     <td>Total</td>
-                                    <td colspan="2">{{sessionSvc.ShoppingCart.totalPrice | price:'$'}}</td>
-                                </tr> -->
+                                    <td colspan="2">{{shopItems.totalPrice}}$</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

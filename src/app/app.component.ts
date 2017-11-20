@@ -38,6 +38,7 @@ export class ShopItems {
   name:string;
   price: number;  
   num:number;
+  totalPrice:number;
 }
 
 export class ShopCartItem{

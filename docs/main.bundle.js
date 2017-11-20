@@ -118,7 +118,7 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return PageInfoService; });
 /* unused harmony export Products */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return ShopItems; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return ShopCart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return ShopCartItem; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -172,11 +172,11 @@ var ShopItems = (function () {
     return ShopItems;
 }());
 
-var ShopCart = (function () {
-    function ShopCart() {
-        this.shopItems = new Array();
+var ShopCartItem = (function () {
+    function ShopCartItem() {
+        this.shopCartItems = new Array();
     }
-    return ShopCart;
+    return ShopCartItem;
 }());
 
 var AppComponent = (function () {
@@ -263,7 +263,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__app_routing_module__["b" /* CONST_ROUTING */],
             __WEBPACK_IMPORTED_MODULE_2_ng2_bootstrap__["a" /* AlertModule */].forRoot()
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_4__app_component__["b" /* PageInfoService */], __WEBPACK_IMPORTED_MODULE_4__app_component__["e" /* UserInfo */], __WEBPACK_IMPORTED_MODULE_4__app_component__["c" /* ShopCart */], __WEBPACK_IMPORTED_MODULE_4__app_component__["d" /* ShopItems */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_4__app_component__["b" /* PageInfoService */], __WEBPACK_IMPORTED_MODULE_4__app_component__["e" /* UserInfo */], __WEBPACK_IMPORTED_MODULE_4__app_component__["c" /* ShopCartItem */], __WEBPACK_IMPORTED_MODULE_4__app_component__["d" /* ShopItems */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -336,7 +336,7 @@ MyFooterComponent = __decorate([
 /***/ "../../../../../src/app/components/my-header/my-header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header class=\"box-flex-head\">\r\n    <div class=\"login-block\"><a class=\"login-name\" href=\"index.html\">Shopping</a>\r\n    </div>\r\n    <div class=\"login-block\">\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n              Home <span class=\"caret\"></span>\r\n            </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a routerLinkActive=\"active\" [routerLink]=\"['/home']\">Revolution Slider</a></li>\r\n                <li><a routerLinkActive=\"active\" [routerLink]=\"['/home']\">Bootstrap Slider</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                  Account <span class=\"caret\"></span>\r\n                </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">My Account</a></li>\r\n                <li><a href=\"#\">View Cart</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                      Pages <span class=\"caret\"></span>\r\n                    </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">404</a></li>\r\n                <li><a href=\"#\">FAQ</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                          Coputers <span class=\"caret\"></span>\r\n                        </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">Desktop</a></li>\r\n                <li><a href=\"#\">Lattop</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                              Contact\r\n                            </button>\r\n        </div>\r\n    </div>\r\n    <div class=\"login-block\">\r\n        <button type=\"Submit\" class=\"btn btn-info btn-lg active\" routerLinkActive=\"active\" [routerLink]=\"['/login']\" *ngIf=\"pageInfoService.isShowSignin\">Login</button>\r\n        <button type=\"Submit\" class=\"btn btn-info btn-lg active\" routerLinkActive=\"active\" [routerLink]=\"['/home']\" *ngIf=\"pageInfoService.isShowSignout\" (click)=\"onClick_Logout()\">Sign out</button>\r\n\r\n        <button type=\"button\" class=\"btn btn-info btn-lg active\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\">ShopCart</button>\r\n        <div class=\"modal fade bs-example-modal-sm\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"mySmallModalLabel\">\r\n            <div class=\"modal-dialog modal-sm\" role=\"document\">\r\n                <div class=\"modal-content\">\r\n                    <h5>Shopping Cart</h5>\r\n                    <hr>\r\n                    <div>\r\n                        <table class=\"table table-striped\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>Name</th>\r\n                                    <th>Quantity</th>\r\n                                    <th>Price</th>\r\n                                    <th></th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of shopCartItems.shopItems\">\r\n                                    <td class=\"color\">\r\n                                        {{item.name}}\r\n                                    </td>\r\n                                    <td class=\"trquantity\">\r\n                                        <div class=\"quantity\">\r\n                                            <div class=\"input-group spinner\">\r\n                                                <input type=\"text\" class=\"form-control\" value=\"{{item.num}}\">\r\n                                                <div class=\"input-group-btn-vertical\">\r\n                                                    <button class=\"btn btn-default\" type=\"button\" (click)=\"addToCart(item)\">\r\n                                            <i class=\"fa fa-caret-up\"></i>\r\n                                          </button>\r\n                                                    <button class=\"btn btn-default\" type=\"button\" (click)=\"deleteFromCart(item)\">\r\n                                            <i class=\"fa fa-caret-down\"></i>\r\n                                          </button>\r\n                                                </div>\r\n                                            </div>\r\n                                        </div>\r\n                                    </td>\r\n                                    <td>\r\n                                        {{item.price}}$\r\n                                    </td>\r\n                                    <td>\r\n                                        <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"DeletefromShoppingCart(item)\">\r\n                                      <span aria-hidden=\"true\">&times;</span>\r\n                                    </button>\r\n                                    </td>\r\n                                </tr>\r\n                                <!-- <tr>\r\n                                    <td></td>\r\n                                    <td>Total</td>\r\n                                    <td colspan=\"2\">{{sessionSvc.ShoppingCart.totalPrice | price:'$'}}</td>\r\n                                </tr> -->\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</header>"
+module.exports = "<header class=\"box-flex-head\">\r\n    <div class=\"login-block\"><a class=\"login-name\" href=\"index.html\">Shopping</a>\r\n    </div>\r\n    <div class=\"login-block\">\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n              Home <span class=\"caret\"></span>\r\n            </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a routerLinkActive=\"active\" [routerLink]=\"['/home']\">Revolution Slider</a></li>\r\n                <li><a routerLinkActive=\"active\" [routerLink]=\"['/home']\">Bootstrap Slider</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                  Account <span class=\"caret\"></span>\r\n                </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">My Account</a></li>\r\n                <li><a href=\"#\">View Cart</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                      Pages <span class=\"caret\"></span>\r\n                    </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">404</a></li>\r\n                <li><a href=\"#\">FAQ</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                          Coputers <span class=\"caret\"></span>\r\n                        </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">Desktop</a></li>\r\n                <li><a href=\"#\">Lattop</a></li>\r\n            </ul>\r\n        </div>\r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                              Contact\r\n                            </button>\r\n        </div>\r\n    </div>\r\n    <div class=\"login-block\">\r\n        <button type=\"Submit\" class=\"btn btn-info btn-lg active\" routerLinkActive=\"active\" [routerLink]=\"['/login']\" *ngIf=\"pageInfoService.isShowSignin\">Login</button>\r\n        <button type=\"Submit\" class=\"btn btn-info btn-lg active\" routerLinkActive=\"active\" [routerLink]=\"['/home']\" *ngIf=\"pageInfoService.isShowSignout\" (click)=\"onClick_Logout()\">Sign out</button>\r\n\r\n        <button type=\"button\" class=\"btn btn-info btn-lg active\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\">ShopCart</button>\r\n        <div class=\"modal fade bs-example-modal-sm\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"mySmallModalLabel\">\r\n            <div class=\"modal-dialog modal-sm\" role=\"document\">\r\n                <div class=\"modal-content\">\r\n                    <h5>Shopping Cart</h5>\r\n                    <hr>\r\n                    <div>\r\n                        <table class=\"table table-striped\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>Name</th>\r\n                                    <th>Quantity</th>\r\n                                    <th>Price</th>\r\n                                    <th></th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of shopCartItems.shopCartItems\">\r\n                                    <td class=\"color\">\r\n                                        {{item.name}}\r\n                                    </td>\r\n                                    <td class=\"trquantity\">\r\n                                        <div class=\"quantity\">\r\n                                            <div class=\"input-group spinner\">\r\n                                                <a class=\"btn btn-default btn-xs\"  (click)=\"reduceFromShopCart(item)\" role=\"button\">-</a>\r\n                                                <button type=\"button\" class=\"btn btn-default btn-lg\" disabled=\"disabled\" >{{item.num}}</button>                                                \r\n                                                <a class=\"btn btn-default btn-xs\"  (click)=\"addToShopCart(item)\" role=\"button\">+</a>\r\n                                            </div>\r\n                                        </div>\r\n                                    </td>\r\n                                    <td>\r\n                                        {{item.price}}$\r\n                                    </td>\r\n                                    <td>\r\n                                        <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"DeletefromShopCart(item)\">\r\n                                      <span aria-hidden=\"true\">&times;</span>\r\n                                    </button>\r\n                                    </td>\r\n                                </tr>\r\n                                <!-- <tr>\r\n                                    <td></td>\r\n                                    <td>Total</td>\r\n                                    <td colspan=\"2\">{{sessionSvc.ShoppingCart.totalPrice | price:'$'}}</td>\r\n                                </tr> -->\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</header>"
 
 /***/ }),
 
@@ -385,17 +385,35 @@ var MyHeaderComponent = (function () {
     }
     MyHeaderComponent.prototype.ngOnInit = function () {
     };
-    MyHeaderComponent.prototype.addToCart = function (shopItem) {
-        this.shopItem = shopItem;
-        if (this.shopCartItems.shopItems.indexOf(this.shopItem) != -1) {
-            this.shopCartItems.shopItems.splice(this.shopCartItems.shopItems.indexOf(shopItem), 1);
-            this.shopItem.num = this.shopItem.num + 1;
-            this.shopCartItems.shopItems.push(this.shopItem);
+    MyHeaderComponent.prototype.addToShopCart = function (shopItem) {
+        for (var _i = 0, _a = this.shopCartItems.shopCartItems; _i < _a.length; _i++) {
+            var item = _a[_i];
+            if (item.name == shopItem.name) {
+                item.price += (item.price / item.num);
+                item.num += 1;
+                break;
+            }
         }
     };
-    MyHeaderComponent.prototype.DeletefromShoppingCart = function (shopItem) {
+    MyHeaderComponent.prototype.reduceFromShopCart = function (shopItem) {
+        for (var _i = 0, _a = this.shopCartItems.shopCartItems; _i < _a.length; _i++) {
+            var item = _a[_i];
+            if (item.name == shopItem.name) {
+                if (item.num - 1 == 0)
+                    this.shopCartItems.shopCartItems.splice(this.shopCartItems.shopCartItems.indexOf(shopItem), 1);
+                else {
+                    item.price -= item.price / item.num;
+                    item.num -= 1;
+                }
+                break;
+            }
+        }
     };
-    MyHeaderComponent.prototype.deleteFromCart = function (shopItem) {
+    MyHeaderComponent.prototype.DeletefromShopCart = function (shopItem) {
+        for (var _i = 0, _a = this.shopCartItems.shopCartItems; _i < _a.length; _i++) {
+            var item = _a[_i];
+            this.shopCartItems.shopCartItems.splice(this.shopCartItems.shopCartItems.indexOf(shopItem), 1);
+        }
     };
     // deleteFromCart(product){
     //   if(this.shopCartItems.products.indexOf(product) != -1){
@@ -416,7 +434,7 @@ MyHeaderComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/my-header/my-header.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/my-header/my-header.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["b" /* PageInfoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["b" /* PageInfoService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["e" /* UserInfo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["e" /* UserInfo */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["c" /* ShopCart */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["c" /* ShopCart */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["d" /* ShopItems */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["d" /* ShopItems */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["b" /* PageInfoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["b" /* PageInfoService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["e" /* UserInfo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["e" /* UserInfo */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["c" /* ShopCartItem */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["c" /* ShopCartItem */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["d" /* ShopItems */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["d" /* ShopItems */]) === "function" && _d || Object])
 ], MyHeaderComponent);
 
 var _a, _b, _c, _d;
@@ -427,7 +445,7 @@ var _a, _b, _c, _d;
 /***/ "../../../../../src/app/components/page-home/page-home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<button (click)=\"AlertToken()\">token</button>\n<div class=\"home\">\n  <div class=\"home-page\">\n    <img src=\"assets/images/back1.jpg\" class=\"img-responsive\" alt=\"Responsive image\">\n  </div>\n  <div class=\"col-md-12\">\n    <!-- Catchy title -->\n    <h3>It<span class=\"color\">'</span>s Lorem ipsum <span class=\"color\">dolor</span> sit amet consectetur</h3>\n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique est sit amet diam interdum semper. Vestibulum\n      condimentum ante urna, vel interdum odio accumsan id.</p>\n  </div>\n  <h1 *ngIf=\"!pageInfoService.isShowProducts\" routerLinkActive=\"active\" [routerLink]=\"['/login']\"><a>Login</a> to see the product list.</h1>\n  <div class=\"product-container\" *ngIf=\"pageInfoService.isShowProducts\">\n    <span class=\"product\" *ngFor=\"let product of products;\">\n      <div class=\"s-item\">\n          <a href=\"single-item.html\">\n              <img src=\"{{product.imgurl}}\" class=\"img-responsive\">\n          </a>\n          <span>{{product.name}}</span>\n    <p> {{product.description}}</p>\n    <hr>\n    <div class=\"item\">\n        <span class=\"item-price\">{{product.price}}$</span>\n        <button class=\"btn btn-danger btn-sm btn-animate item-price\" (click)=\"addToCart(product)\">Add to Cart</button>\n    </div>\n  </div>\n  </span>\n</div>\n</div>\n\n\n<!-- <div *ngFor=\"let product of products;\" class=\"col-lg-3 col-md-3 col-sm-6 col-xs-12\">\n  <div class=\"item\">\n    <div class=\"item-img\">\n      <img src=\"{{product.imgurl}}\" class=\"img-responsive\">\n    </div>\n    <div class=\"item-name\">\n      <span>{{product.name}}</span>\n    </div>\n    <div class=\"item-des\">\n      {{product.description}}\n    </div>\n    <hr>\n    <div class=\"item-price\">\n      <div class=\"item-priceshow\">\n        {{product.price | price:'$'}}\n      </div>\n      <div class=\"item-shoppingcart\">\n        <button appBtnAddCart class=\"btn btn-danger btn-sm btn-animate\" (click)=\"addToCart(product)\">\n                <em>Add to Cart</em>\n                <svg x=\"0px\" y=\"0px\" width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\">\n                  <path stroke-dasharray=\"19.79 19.79\" stroke-dashoffset=\"19.79\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-miterlimit=\"10\" d=\"M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11\"></path>\n                </svg>\n              </button>\n        <a appBtnAddCart (click)=\"addToCart(product)\" class=\"btn btn-danger btn-sm\">Add to cart</a>\n      </div>\n    </div>\n  </div>\n</div> -->"
+module.exports = "<button (click)=\"AlertToken()\">token</button>\n<div class=\"home\">\n  <div class=\"home-page\">\n    <img src=\"assets/images/back1.jpg\" class=\"img-responsive\" alt=\"Responsive image\">\n  </div>\n  <div class=\"col-md-12\">\n    <!-- Catchy title -->\n    <h3>It<span class=\"color\">'</span>s Lorem ipsum <span class=\"color\">dolor</span> sit amet consectetur</h3>\n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique est sit amet diam interdum semper. Vestibulum\n      condimentum ante urna, vel interdum odio accumsan id.</p>\n  </div>\n  <h1 *ngIf=\"!pageInfoService.isShowProducts\" routerLinkActive=\"active\" [routerLink]=\"['/login']\"><a>Login</a> to see the product list.</h1>\n  <div class=\"product-container\" *ngIf=\"pageInfoService.isShowProducts\">\n    <span class=\"product\" *ngFor=\"let product of products;\">\n      <div class=\"s-item\">\n          <a href=\"single-item.html\">\n              <img src=\"{{product.imgurl}}\" class=\"img-responsive\">\n          </a>\n          <span>{{product.name}}</span>\n    <p> {{product.description}}</p>\n    <hr>\n    <div class=\"item\">\n        <span class=\"item-price\">{{product.price}}$</span>\n        <button class=\"btn btn-danger btn-sm btn-animate item-price\" (click)=\"addToShopCart(product)\">Add to Cart</button>\n    </div>\n  </div>\n  </span>\n</div>\n</div>\n\n\n<!-- <div *ngFor=\"let product of products;\" class=\"col-lg-3 col-md-3 col-sm-6 col-xs-12\">\n  <div class=\"item\">\n    <div class=\"item-img\">\n      <img src=\"{{product.imgurl}}\" class=\"img-responsive\">\n    </div>\n    <div class=\"item-name\">\n      <span>{{product.name}}</span>\n    </div>\n    <div class=\"item-des\">\n      {{product.description}}\n    </div>\n    <hr>\n    <div class=\"item-price\">\n      <div class=\"item-priceshow\">\n        {{product.price | price:'$'}}\n      </div>\n      <div class=\"item-shoppingcart\">\n        <button appBtnAddCart class=\"btn btn-danger btn-sm btn-animate\" (click)=\"addToCart(product)\">\n                <em>Add to Cart</em>\n                <svg x=\"0px\" y=\"0px\" width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\">\n                  <path stroke-dasharray=\"19.79 19.79\" stroke-dashoffset=\"19.79\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-miterlimit=\"10\" d=\"M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11\"></path>\n                </svg>\n              </button>\n        <a appBtnAddCart (click)=\"addToCart(product)\" class=\"btn btn-danger btn-sm\">Add to cart</a>\n      </div>\n    </div>\n  </div>\n</div> -->"
 
 /***/ }),
 
@@ -473,12 +491,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var PageHomeComponent = (function () {
-    function PageHomeComponent(pageInfoService, http, userInfo, shopCartItems, shopItems) {
+    function PageHomeComponent(pageInfoService, http, userInfo, shopCartItems) {
         this.pageInfoService = pageInfoService;
         this.http = http;
         this.userInfo = userInfo;
         this.shopCartItems = shopCartItems;
-        this.shopItems = shopItems;
     }
     PageHomeComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -496,49 +513,23 @@ var PageHomeComponent = (function () {
             });
         }
     };
-    PageHomeComponent.prototype.addToCart = function (product) {
-        console.log("0------------");
-        this.shopItems.name = product.name;
-        if (this.shopCartItems.shopItems == undefined) {
-            console.log("1------------");
-            this.shopItems.name = product.name;
-            this.shopItems.price = product.price;
-            this.shopItems.num = 1;
-            this.shopCartItems.shopItems.push(this.shopItems);
-            console.log("1------------1");
-        }
-        else if (this.shopCartItems.shopItems.length == 0) {
-            console.log("2------------");
-            this.shopItems.name = product.name;
-            this.shopItems.price = product.price;
-            this.shopItems.num = 1;
-            this.shopCartItems.shopItems.push(this.shopItems);
-            alert("1___" + product.name + "__" + product.price + "__" + this.shopCartItems.shopItems.length);
-        }
-        else {
-            console.log("3------------");
-            var i = 1;
-            for (var _i = 0, _a = this.shopCartItems.shopItems; _i < _a.length; _i++) {
-                var item = _a[_i];
-                if (item.name = product.name) {
-                    console.log("4------------");
-                    this.shopCartItems.shopItems.splice(this.shopCartItems.shopItems.indexOf(item), 1);
-                    this.shopItems.num = this.shopItems.num + 1;
-                    this.shopItems.price = this.shopItems.price + product.price;
-                    this.shopCartItems.shopItems.push(this.shopItems);
-                    alert("2___" + product.name + "__" + product.price + "__" + this.shopCartItems.shopItems.length);
-                    break;
-                }
-                else if (i = this.shopCartItems.shopItems.length) {
-                    console.log("5------------");
-                    this.shopItems.name = product.name;
-                    this.shopItems.price = product.price;
-                    this.shopItems.num = 1;
-                    this.shopCartItems.shopItems.push(this.shopItems);
-                    alert("3___" + product.name + "__" + product.price + "__" + this.shopCartItems.shopItems.length);
-                }
-                i = i + 1;
+    PageHomeComponent.prototype.addToShopCart = function (product) {
+        var newItem = new __WEBPACK_IMPORTED_MODULE_3__app_component__["d" /* ShopItems */]();
+        var isFound = false;
+        for (var _i = 0, _a = this.shopCartItems.shopCartItems; _i < _a.length; _i++) {
+            var item = _a[_i];
+            if (item.name == product.name) {
+                item.num += 1;
+                item.price += product.price;
+                isFound = true;
+                break;
             }
+        }
+        if (!isFound) {
+            newItem.name = product.name;
+            newItem.price = product.price;
+            newItem.num = 1;
+            this.shopCartItems.shopCartItems.push(newItem);
         }
     };
     PageHomeComponent.prototype.AlertToken = function () {
@@ -552,10 +543,10 @@ PageHomeComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/page-home/page-home.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/page-home/page-home.component.scss")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__app_component__["b" /* PageInfoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_component__["b" /* PageInfoService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_component__["e" /* UserInfo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_component__["e" /* UserInfo */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__app_component__["c" /* ShopCart */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_component__["c" /* ShopCart */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__app_component__["d" /* ShopItems */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_component__["d" /* ShopItems */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__app_component__["b" /* PageInfoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_component__["b" /* PageInfoService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_component__["e" /* UserInfo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_component__["e" /* UserInfo */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__app_component__["c" /* ShopCartItem */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_component__["c" /* ShopCartItem */]) === "function" && _d || Object])
 ], PageHomeComponent);
 
-var _a, _b, _c, _d, _e;
+var _a, _b, _c, _d;
 //# sourceMappingURL=page-home.component.js.map
 
 /***/ }),
