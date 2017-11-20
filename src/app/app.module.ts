@@ -13,7 +13,7 @@ import { PageLoginComponent } from './components/page-login/page-login.component
 import { PageHomeComponent } from './components/page-home/page-home.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { CONST_ROUTING } from './app-routing.module'; 
-import { PageInfoService,UserInfo,ShopCart,ShopItems } from './app.component';
+import { PageInfoService,UserInfo,ShopCartItem,ShopItems } from './app.component';
 
 
 @NgModule({
@@ -35,7 +35,7 @@ import { PageInfoService,UserInfo,ShopCart,ShopItems } from './app.component';
     CONST_ROUTING,
     AlertModule.forRoot()
   ],
-  providers: [PageInfoService,UserInfo,ShopCart,ShopItems],
+  providers: [PageInfoService,UserInfo,ShopCartItem,ShopItems],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -40,12 +40,12 @@ export class ShopItems {
   num:number;
 }
 
-export class ShopCart{
+export class ShopCartItem{
 
-  shopItems:Array<ShopItems>;  
+  shopCartItems:Array<ShopItems>;  
     
   constructor(){
-    this.shopItems = new Array<ShopItems>();
+    this.shopCartItems = new Array<ShopItems>();
   }
 
   // push(product:Products){
