@@ -14,12 +14,18 @@ import { UserInfo, PageInfoService, Products, ShopItems, ShopCartItem } from '..
 
 })
 export class PageHomeComponent implements OnInit {
+  slideIndex: number;
+  isSlideShow: boolean[] = [true, false, false];
   products: Array<Products>;
   constructor(private pageInfoService: PageInfoService,
     private http: Http,
     private userInfo: UserInfo,
-    private shopCartItems: ShopCartItem    ,
+    private shopCartItems: ShopCartItem,
     private shopItems: ShopItems) {
+
+    this.slideIndex = 0;
+    this.showSlides();
+
   }
 
   ngOnInit() {
@@ -37,6 +43,30 @@ export class PageHomeComponent implements OnInit {
           });
       })
     }
+    var xxxx = document.getElementsByClassName("mySlides");
+    console.log("xxxx_____" + xxxx.length);
+  }
+
+  showSlides() {
+    console.log("----------------------");
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    console.log("mySlides__" + document.getElementsByClassName("mySlides").length);
+    if (slides.length != 0) {
+      for (i = 0; i < slides.length; i++) {
+        this.isSlideShow[i] = false;
+        // slides[i].style.display = "none"; 
+      }
+      this.slideIndex++;
+      if (this.slideIndex > slides.length) { this.slideIndex = 1 }
+      this.isSlideShow[this.slideIndex - 1] = true;
+      // slides[this.slideIndex-1].style.display = "block"; 
+      setTimeout(this.showSlides, 2000); // Change image every 2 seconds
+      for (let i = 0; i < this.isSlideShow.length; i++) {
+        // console.log("i--------"+i+" "+this.isSlideShow[i]) ;     
+      }
+    }
+
   }
 
   addToShopCart(product: Products) {
@@ -61,9 +91,6 @@ export class PageHomeComponent implements OnInit {
       totalPriceTemp += item.price;
     }
     this.shopItems.totalPrice = totalPriceTemp;
-    for (let item of this.shopCartItems.shopCartItems) {
-       item.totalPrice= totalPriceTemp;
-    }
   }
 
 
@@ -71,4 +98,6 @@ export class PageHomeComponent implements OnInit {
   AlertToken() {
     alert("token__  " + this.pageInfoService.isShowProducts + "__" + this.userInfo.token);
   }
+
+
 }

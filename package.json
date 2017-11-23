@@ -28,6 +28,7 @@
     "ng2-bootstrap": "^1.6.3",
     "ng2-validation": "^4.2.0",
     "rxjs": "^5.4.2",
+    "ui-bootstrap": "^0.1.10",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

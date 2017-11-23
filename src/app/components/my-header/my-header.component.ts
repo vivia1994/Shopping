@@ -30,9 +30,6 @@ export class MyHeaderComponent implements OnInit {
       totalPriceTemp += item.price;
     }
     this.shopItems.totalPrice = totalPriceTemp;
-    for (let item of this.shopCartItems.shopCartItems) {
-      item.totalPrice = totalPriceTemp;
-    }
   }
 
   reduceFromShopCart(shopItem: ShopItems) {
@@ -52,9 +49,6 @@ export class MyHeaderComponent implements OnInit {
       totalPriceTemp += item.price;
     }
     this.shopItems.totalPrice = totalPriceTemp;
-    for (let item of this.shopCartItems.shopCartItems) {
-      item.totalPrice = totalPriceTemp;
-    }
   }
 
   DeletefromShopCart(shopItem: ShopItems) {
@@ -66,9 +60,7 @@ export class MyHeaderComponent implements OnInit {
       totalPriceTemp += item.price;
     }
     this.shopItems.totalPrice = totalPriceTemp;
-    for (let item of this.shopCartItems.shopCartItems) {
-      item.totalPrice = totalPriceTemp;
-    }
+
   }
 
 
