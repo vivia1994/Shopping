@@ -5,6 +5,8 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 import { Promise } from 'bluebird';
 import { UserInfo, PageInfoService, Products, ShopItems, ShopCartItem } from '../../app.component';
 
+import { ViewChild, AfterViewInit} from "@angular/core";
+import {KSSwiperContainer, KSSwiperSlide} from 'angular2-swiper';
 
 
 @Component({
@@ -14,18 +16,38 @@ import { UserInfo, PageInfoService, Products, ShopItems, ShopCartItem } from '..
 
 })
 export class PageHomeComponent implements OnInit {
+
+  @ViewChild(KSSwiperContainer)
+  swiperContainer:KSSwiperContainer;
+
+  images:Array<string>;
+  // 配置
+  swipeOptions:any;
+  
   slideIndex: number;
-  isSlideShow: boolean[] = [true, false, false];
   products: Array<Products>;
+  
   constructor(private pageInfoService: PageInfoService,
     private http: Http,
     private userInfo: UserInfo,
     private shopCartItems: ShopCartItem,
     private shopItems: ShopItems) {
 
-    this.slideIndex = 0;
-    this.showSlides();
+      this.swipeOptions = {
+        // 每页显示几张图片
+        slidesPerView: 4,
+        // 是否循环
+        loop: false,
+        spaceBetween: 5
+      };
+      this.images = ["rs-1", "rs-2","rs-3","rs-4","rs-5","rs-6"];
+  }
 
+  moveNext() {
+    this.swiperContainer.swiper.slideNext();
+  }
+  movePrev() {
+    this.swiperContainer.swiper.slidePrev();
   }
 
   ngOnInit() {
@@ -43,31 +65,8 @@ export class PageHomeComponent implements OnInit {
           });
       })
     }
-    var xxxx = document.getElementsByClassName("mySlides");
-    console.log("xxxx_____" + xxxx.length);
   }
 
-  showSlides() {
-    console.log("----------------------");
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    console.log("mySlides__" + document.getElementsByClassName("mySlides").length);
-    if (slides.length != 0) {
-      for (i = 0; i < slides.length; i++) {
-        this.isSlideShow[i] = false;
-        // slides[i].style.display = "none"; 
-      }
-      this.slideIndex++;
-      if (this.slideIndex > slides.length) { this.slideIndex = 1 }
-      this.isSlideShow[this.slideIndex - 1] = true;
-      // slides[this.slideIndex-1].style.display = "block"; 
-      setTimeout(this.showSlides, 2000); // Change image every 2 seconds
-      for (let i = 0; i < this.isSlideShow.length; i++) {
-        // console.log("i--------"+i+" "+this.isSlideShow[i]) ;     
-      }
-    }
-
-  }
 
   addToShopCart(product: Products) {
     let totalPriceTemp = 0;

@@ -14,7 +14,7 @@ import { PageHomeComponent } from './components/page-home/page-home.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { CONST_ROUTING } from './app-routing.module'; 
 import { PageInfoService,UserInfo,ShopCartItem,ShopItems } from './app.component';
-
+import {KSSwiperModule} from "angular2-swiper";
 
 @NgModule({
   declarations: [
@@ -26,6 +26,7 @@ import { PageInfoService,UserInfo,ShopCartItem,ShopItems } from './app.component
     MyHeaderComponent
   ],
   imports: [
+    KSSwiperModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
